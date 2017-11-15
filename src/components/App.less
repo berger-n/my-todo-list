@@ -41,7 +41,12 @@ h1,h2,h3,h4,h5 { .FF("Noto Sans"); }
 
 body { .M0(); 
 
-   .TodoListApp { .Px(@D,@D); .POSfix(); .W1(); .H1(); .BGurl("/icons/logo.svg");.BGsiz(auto);.BGpos(center);.BGnREP();
+   .TodoListApp { .Px(@D,@D); .POSfix(); .W1(); .H1(); 
+   
+      #main { .BGurl("/icons/logo.svg");.BGsiz(auto);.BGpos(center);.BGnREP(); .POSabs(); .O(0.1);
+         width:~`"calc(100% - 2* "+@{D}+"px)"`; height:~`"calc(100% - 2 * "+@{D}+"px)"`;
+         top:@Dx;left:@Dx;
+      }
    //   .HUD(); 
       
       .logo { .Wx(@D); .Hx(@D); .DI(); .POSabs(); .BGurl("/icons/logo.svg"); .BGpos(center);.BGsiz(~`(@{D}-6)+"px auto"`); }
@@ -124,9 +129,22 @@ body { .M0();
          background: -moz-linear-gradient(bottom right, @rouge1, @rouge3); /* For Firefox 3.6 to 15 */
          background: linear-gradient(to bottom right,  @rouge1, @rouge3); /* Standard syntax */      
          .B1(@rouge0);.BR1(@rouge4);.BB1(@rouge4);
-         text-shadow:1px 1px 1px @rouge5 ;       
-         label { .DI();
-            &:first-letter { .TDu(); } 
+         text-shadow:1px 1px 1px @rouge5 ;    
+         .PLx(0);
+         & > ul { &,* { .VAtop(); }
+            & > li:hover ul { .DB(); } //.O(1);pointer-events:auto;}  
+            & > li > span { .PWx(10); .FF("Noto Sans"); .DI();
+               // &:hover { .BGcol(@rouge0); .C(@rouge2); }
+              
+            }   
+            &,ul { list-style-type:none; .P0(); .M0(); }
+            & > li { .Wx(40); .DI();  
+               span:first-letter { .TDu(); } 
+            }
+            & > li > ul { .T1(@T3);.BGcol(@rouge2); box-shadow:2px 2px 3px @rouge5; .MLx(-1);.MTx(0);.B1(@rouge3); .D0(); //.O(0);pointer-events:none;
+               .Wx(100);
+               & > li { .PWx(10);.FF("Noto Sans"); }
+            }
          }
       }
       

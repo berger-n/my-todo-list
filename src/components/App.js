@@ -75,6 +75,7 @@ class TodoListApp extends Component
             //<Draggable cancel="button" {...dragHandlers}>
       return (
          <div className="TodoListApp">   
+            <div id="main"></div>
             <div id="icon" className="E">
                <button title="load" onClick={ function() { $("label[for=theFile]").click(); } }>{ 'lo\nad' }</button>
                <input type="file" id="theFile" onChange={ this.handleChange }/>  
@@ -97,7 +98,33 @@ class TodoListApp extends Component
             </div>            
             <div className="logo"/>
             <div id="menu" className="N">
-               <label>Fichier</label>
+               <ul>
+                  <li>
+                     <span>File</span>
+                     <ul>
+                        <li>New</li>
+                        <li>Load</li>
+                        <li>Save</li>                     
+                     </ul>
+                  </li>                  
+                  <li>
+                     <span>Edit</span>
+                     <ul>
+                        <li>Undo</li>
+                        <li>Redo</li>
+                        <li>Cut</li>
+                        <li>Copy</li>
+                        <li>Past</li>                     
+                     </ul>
+                  </li>
+                  <li>
+                     <span>View</span>
+                     <ul>
+                        <li>Fold</li>
+                        <li>Unfold</li>                     
+                     </ul>
+                  </li>
+               </ul>
             </div>            
             <div className="logo"/>
             <div id="scro" className="E">
@@ -108,6 +135,24 @@ class TodoListApp extends Component
       ); // <FicLabelConnec/>
    };
 }
+
+/*
+ 
+                  <li>
+                     <span></span>
+                     <ul>
+                        <li></li>
+                        <li></li>                     
+                     </ul>
+                  </li>
+                  <li>
+                     <span></span>
+                     <ul>
+                        <li></li>
+                        <li></li>                     
+                     </ul>
+                  </li>
+                  */
 
 export default TodoListApp;
 
