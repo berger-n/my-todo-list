@@ -1,0 +1,151 @@
+
+@import "eNj0y.module.less" ;
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+
+* { .FF("Noto Serif");  box-sizing:border-box; }
+h1,h2,h3,h4,h5 { .FF("Noto Sans"); }
+
+@D : 30;
+@Dx : ~`@{D}+"px"`;
+
+@bleu0 : lighten(@bleu1,15%);
+@bleu1 : #b7c5d3;
+@bleu2 : #98abbf; // rgb(183, 197, 211); 
+@bleu3 : #7991ab;
+@bleu4 : #5c7895;
+@bleu5 : #495e75;
+@bleu6 : #354556;
+
+@jaune0 : #f0c59b;
+@jaune1 : #eaac6e;
+@jaune2 : #E39242;
+@jaune3 : #d3781f;
+@jaune4 : #a65f19;
+@jaune5 : #7a4612;
+
+@rouge0 : lighten(@rouge3,30%);
+@rouge1 : lighten(@rouge3,15%);
+@rouge2 : #be032e;
+@rouge3 : #8c0222;
+@rouge4 : #5a0116;
+@rouge5 : #27010a;
+
+@vert0 : lighten(@vert3,30%) ;
+@vert1 : lighten(@vert3,15%) ;
+@vert2 : #43876b;
+@vert3 : #326550;
+@vert4 : #214335;
+@vert5 : #10211a;
+
+body { .M0(); 
+
+   .TodoListApp { .Px(@D,@D); .POSfix(); .W1(); .H1(); .BGurl("/icons/logo.svg");.BGsiz(auto);.BGpos(center);.BGnREP();
+   //   .HUD(); 
+      
+      .logo { .Wx(@D); .Hx(@D); .DI(); .POSabs(); .BGurl("/icons/logo.svg"); .BGpos(center);.BGsiz(~`(@{D}-6)+"px auto"`); }
+      #icon + .logo { top:0;left:0;}
+      #info + .logo { bottom:0;left:0;}
+      #menu + .logo { top:0;right:0;}
+      #scro + .logo { bottom:0;right:0;}
+      
+      #icon,#scro { .Wx(@D); height:~`"calc(100% - 2 * "+@{D}+"px)"`; .POSabs();  .DB(); left:0; top:@Dx; .TA5();  .Px(@D/10,@D/10); }
+      
+      
+      #icon {
+         background: @jaune2; /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(left top, @jaune1, @jaune3); /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(bottom right,  @jaune1, @jaune3); /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(bottom right, @jaune1, @jaune3); /* For Firefox 3.6 to 15 */
+         background: linear-gradient(to bottom right,  @jaune1, @jaune3); /* Standard syntax */      
+         .B1(@jaune0);.BR1(@jaune4);.BB1(@jaune4);
+         
+         hr {  .BT1(@jaune3);.BB1(@jaune0); .Hx(0); border-width:1px !important; border-left:none; border-right:none; }
+            
+            
+         button { .DI(); .Wx(@D - @D/5-2); .TA0(); .M0(); .Hx(@D - @D/5-2); .TT1(); .DI(); .VAtop(); .FF("Noto Sans");
+            .Px(0,(@D - @D/5 - 8*2)/2 - 2); .FZ(8);.LHx(8);.TA5(); letter-spacing:0px; .MBx(0);
+/*             padding-left:20%;padding-right:20%; */
+/*             &:nth-child(2n+2) { .MBx(0); } */
+/*             .T1(~"200ms"); */
+            white-space:pre-line;
+
+            background: @jaune1; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(@jaune1, @jaune2); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(@jaune1, @jaune2); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(@jaune1, @jaune2); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(@jaune1, @jaune2); /* Standard syntax */
+            .B1(@jaune0);.BR1(@jaune3);.BB1(@jaune3);
+            
+            &:active { .B1(@jaune3);.BR1(@jaune0);.BB1(@jaune0);             
+               background: @jaune2; /* For browsers that do not support gradients */
+               background: -webkit-linear-gradient(@jaune2, @jaune1); /* For Safari 5.1 to 6.0 */
+               background: -o-linear-gradient(@jaune2, @jaune1); /* For Opera 11.1 to 12.0 */
+               background: -moz-linear-gradient(@jaune2, @jaune1); /* For Firefox 3.6 to 15 */
+               background: linear-gradient(@jaune2, @jaune1); /* Standard syntax */
+            }
+            
+            .C(white);text-shadow:1px 1px 1px @jaune5 ;            
+            outline-color:transparent;
+            
+            &:disabled { .C(@jaune0);text-shadow:1px 1px 1px @jaune3 ;
+               .B1(@jaune3);.BR1(@jaune1);.BB1(@jaune1);  
+               .BG(@jaune2); 
+               
+            } 
+            
+         }
+         
+         hr { .MHx(@D/5); }
+      }
+      
+      #menu,#info { .PWx(@D/3); .TA0(); .Hx(@D); .LHx(@D - 2); bottom:0px;left:@Dx; .POSabs(); width:~`"calc(100% - 2* "+@{D}+"px)"`; .VA(middle);
+         .C(white); &,label { .FZ(@D/2.5); .FF("Noto Sans"); }
+      }
+      
+      #info { .TA1();
+         background: @bleu2; /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(left top, @bleu1, @bleu3); /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(bottom right,  @bleu1, @bleu3); /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(bottom right, @bleu1, @bleu3); /* For Firefox 3.6 to 15 */
+         background: linear-gradient(to bottom right,  @bleu1, @bleu3); /* Standard syntax */      
+         .B1(@bleu0);.BR1(@bleu4);.BB1(@bleu4);
+         text-shadow:1px 1px 1px @bleu5 ;  
+         
+         hr {  .BT1(@bleu4);.BB1(@bleu0); }
+         
+      }
+      
+      #menu { top:0;
+         background: @rouge2; /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(left top, @rouge1, @rouge3); /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(bottom right,  @rouge1, @rouge3); /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(bottom right, @rouge1, @rouge3); /* For Firefox 3.6 to 15 */
+         background: linear-gradient(to bottom right,  @rouge1, @rouge3); /* Standard syntax */      
+         .B1(@rouge0);.BR1(@rouge4);.BB1(@rouge4);
+         text-shadow:1px 1px 1px @rouge5 ;       
+         label { .DI();
+            &:first-letter { .TDu(); } 
+         }
+      }
+      
+      #scro { right:0;left:auto;
+         background: @vert2; /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(left top, @vert1, @vert3); /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(bottom right,  @vert1, @vert3); /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(bottom right, @vert1, @vert3); /* For Firefox 3.6 to 15 */
+         background: linear-gradient(to bottom right,  @vert1, @vert3); /* Standard syntax */      
+         .B1(@vert0);.BR1(@vert4);.BB1(@vert4);
+         text-shadow:1px 1px 1px @vert5 ;       
+      }
+      
+      input[type="file"] { .O(0); .POSabs(); pointer-events: none; .Wx(1); .Hx(1);  }
+      
+      label[for=theFile] { .PTR(); }
+        
+   }
+   
+}
+
+/* .HUD(); */

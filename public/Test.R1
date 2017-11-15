@@ -1,0 +1,23 @@
+Test
+auteur
+email@truc.fr
+november 2015
+
+[o] Section
+[+] Section
+[TRUC] Section
+
+(o) subsection
+(+) subsection
+(Truc) subsection
+
+<o> item
+<+> item
+<truc> item
+<?> item
+
+o texte
+ø texte
+* texte
+a texte
+! texte
