@@ -52,8 +52,8 @@ class TodoListApp extends Component
         x: -400, y: 200
       }
     };
-   }
-   */
+   }*/
+   
    
    handleChange = (event) => 
    {
@@ -75,9 +75,24 @@ class TodoListApp extends Component
             //<Draggable cancel="button" {...dragHandlers}>
       return (
          <div className="TodoListApp">   
-            <div className="window">
+            <div id="main">
+               <div id="fond"/>
+               <Draggable handle=".coin" grid={[10, 10]} bounds="parent" {...dragHandlers}>
+                  <div className="window alert">
+                     <div className="icon"/>
+                     <div className="coin"/>
+                     <div className="info"/>
+                     <div className="coin"/>
+                     <div className="menu"/>
+                     <div className="coin"/>
+                     <div className="scro"/>
+                     <div className="coin"/>
+                     <div className="content">
+                        <p>Hello, World !</p>
+                     </div>
+                  </div>
+               </Draggable>
             </div>
-            <div id="main"></div>
             <div id="icon" className="E">
                <button title="load" onClick={ function() { $("label[for=theFile]").click(); } }>{ 'lo\nad' }</button>
                <input type="file" id="theFile" onChange={ this.handleChange }/>  

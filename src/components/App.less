@@ -9,6 +9,8 @@ h1,h2,h3,h4,h5 { .FF("Noto Sans"); }
 
 @D : 30;
 @Dx : ~`@{D}+"px"`;
+@E : 5 ;
+@Ex : ~`@{E}+"px"`;
 
 @bleu0 : lighten(@bleu1,15%);
 @bleu1 : #b7c5d3;
@@ -43,10 +45,11 @@ body { .M0();
 
    .TodoListApp { .Px(@D,@D); .POSfix(); .W1(); .H1(); 
    
-      #main { .BGurl("/icons/logo.svg");.BGsiz(auto);.BGpos(center);.BGnREP(); .POSabs(); .O(0.1);
+      #main,#fond { .POSabs();
          width:~`"calc(100% - 2* "+@{D}+"px)"`; height:~`"calc(100% - 2 * "+@{D}+"px)"`;
          top:@Dx;left:@Dx;
       }
+      #fond { .BGurl("/icons/logo.svg");.BGsiz(auto);.BGpos(center);.BGnREP(); .O(0.87); }
    //   .HUD(); 
       
       .logo { .Wx(@D); .Hx(@D); .DI(); .POSabs(); .BGurl("/icons/logo.svg"); .BGpos(center);.BGsiz(~`(@{D}-6)+"px auto"`); }
@@ -59,21 +62,14 @@ body { .M0();
       
       
       #icon { // ------------------------------------------------------------------------------------------------------------------------------ icons
-         background: @jaune2; /* For browsers that do not support gradients */
-         background: -webkit-linear-gradient(left top, @jaune1, @jaune3); /* For Safari 5.1 to 6.0 */
-         background: -o-linear-gradient(bottom right,  @jaune1, @jaune3); /* For Opera 11.1 to 12.0 */
-         background: -moz-linear-gradient(bottom right, @jaune1, @jaune3); /* For Firefox 3.6 to 15 */
-         background: linear-gradient(to bottom right,  @jaune1, @jaune3); /* Standard syntax */      
-         .B1(@jaune0);.BR1(@jaune4);.BB1(@jaune4);
-         
-         hr {  .BT1(@jaune3);.BB1(@jaune0); .Hx(0); border-width:1px !important; border-left:none; border-right:none; }
-            
+         .jaune();
             
          button { .DI(); .Wx(@D - @D/5-2); .TA0(); .M0(); .Hx(@D - @D/5-2); .TT1(); .DI(); .VAtop(); .FF("Noto Sans");
             .Px(0,(@D - @D/5 - 8*2)/2 - 2); .FZ(8);.LHx(8);.TA5(); letter-spacing:0px; .MBx(0);
 /*             padding-left:20%;padding-right:20%; */
 /*             &:nth-child(2n+2) { .MBx(0); } */
 /*             .T1(~"200ms"); */
+
             white-space:pre-line;
 
             background: @jaune1; /* For browsers that do not support gradients */
@@ -89,8 +85,7 @@ body { .M0();
                background: -o-linear-gradient(@jaune2, @jaune1); /* For Opera 11.1 to 12.0 */
                background: -moz-linear-gradient(@jaune2, @jaune1); /* For Firefox 3.6 to 15 */
                background: linear-gradient(@jaune2, @jaune1); /* Standard syntax */
-            }
-            
+            }            
             .C(white);text-shadow:1px 1px 1px @jaune5 ;            
             outline-color:transparent;
             
@@ -105,11 +100,28 @@ body { .M0();
          hr { .MHx(@D/5); }
       }
       
+      .jaune(){
+         background: @jaune2; /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(left top, @jaune1, @jaune3); /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(bottom right,  @jaune1, @jaune3); /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(bottom right, @jaune1, @jaune3); /* For Firefox 3.6 to 15 */
+         background: linear-gradient(to bottom right,  @jaune1, @jaune3); /* Standard syntax */      
+         .B1(@jaune0);.BR1(@jaune4);.BB1(@jaune4);
+         
+         hr {  .BT1(@jaune3);.BB1(@jaune0); .Hx(0); border-width:1px !important; border-left:none; border-right:none; }
+         
+      }
+      
       #menu,#info { .PWx(@D/3); .TA0(); .Hx(@D); .LHx(@D - 2); bottom:0px;left:@Dx; .POSabs(); width:~`"calc(100% - 2* "+@{D}+"px)"`; .VA(middle);
          .C(white); &,label { .FZ(@D/2.5); .FF("Noto Sans"); }
       }
       
       #info { .TA1(); // ------------------------------------------------------------------------------------------------------------------------------ info
+         
+         .bleu();
+         
+      }
+      .bleu() {
          background: @bleu2; /* For browsers that do not support gradients */
          background: -webkit-linear-gradient(left top, @bleu1, @bleu3); /* For Safari 5.1 to 6.0 */
          background: -o-linear-gradient(bottom right,  @bleu1, @bleu3); /* For Opera 11.1 to 12.0 */
@@ -119,17 +131,11 @@ body { .M0();
          text-shadow:1px 1px 1px @bleu5 ;  
          
          hr {  .BT1(@bleu4);.BB1(@bleu0); }
-         
       }
       
-      #menu { top:0; // ------------------------------------------------------------------------------------------------------------------------------ menu
-         background: @rouge2; /* For browsers that do not support gradients */
-         background: -webkit-linear-gradient(left top, @rouge1, @rouge3); /* For Safari 5.1 to 6.0 */
-         background: -o-linear-gradient(bottom right,  @rouge1, @rouge3); /* For Opera 11.1 to 12.0 */
-         background: -moz-linear-gradient(bottom right, @rouge1, @rouge3); /* For Firefox 3.6 to 15 */
-         background: linear-gradient(to bottom right,  @rouge1, @rouge3); /* Standard syntax */      
-         .B1(@rouge0);.BR1(@rouge4);.BB1(@rouge4);
-         text-shadow:1px 1px 1px @rouge5 ;    
+      
+      #menu { top:0; // ------------------------------------------------------------------------------------------------------------------------------ menu        
+         .rouge() ;
          .PLx(0);
          & > ul { &,* { .VAtop(); cursor:default;}
             & > li:hover { 
@@ -154,7 +160,22 @@ body { .M0();
          }
       }
       
+      .rouge(){
+         background: @rouge2; /* For browsers that do not support gradients */
+         background: -webkit-linear-gradient(left top, @rouge1, @rouge3); /* For Safari 5.1 to 6.0 */
+         background: -o-linear-gradient(bottom right,  @rouge1, @rouge3); /* For Opera 11.1 to 12.0 */
+         background: -moz-linear-gradient(bottom right, @rouge1, @rouge3); /* For Firefox 3.6 to 15 */
+         background: linear-gradient(to bottom right,  @rouge1, @rouge3); /* Standard syntax */      
+         .B1(@rouge0);.BR1(@rouge4);.BB1(@rouge4);
+         text-shadow:1px 1px 1px @rouge5 ;    
+         
+      }
+      
       #scro { right:0;left:auto; // ------------------------------------------------------------------------------------------------------------------- scroll
+         .vert();
+      }
+      
+      .vert() {
          background: @vert2; /* For browsers that do not support gradients */
          background: -webkit-linear-gradient(left top, @vert1, @vert3); /* For Safari 5.1 to 6.0 */
          background: -o-linear-gradient(bottom right,  @vert1, @vert3); /* For Opera 11.1 to 12.0 */
@@ -167,7 +188,45 @@ body { .M0();
       input[type="file"] { .O(0); .POSabs(); pointer-events: none; .Wx(1); .Hx(1);  }
       
       label[for=theFile] { .PTR(); }
-        
+      
+      
+      .window { .POSabs(); .Z(10); // ----------------------------------------------------------------------------------------------------------- window
+         .BGcol(rgba(255,255,255,0.95)); box-shadow:0 0 5px 2px rgba(0,0,0,0.35);
+         
+         &.alert { .Wx(300);.Hx(200); left:~"calc((100% - 300px)/2)";top:~"calc((100% - 200px) / 2)";   }
+         
+         .icon,.scro { .Wx(@E); height:~`"calc(100% - 2* "+@{E}+"px)"`; .POSabs();  .DB(); left:0; top:@Ex; .TA5();  /*.Px(@D/10,@D/10);*/ }
+      
+         .menu,.info { .TA5(); .Hx(@E); .LHx(@E - 2); bottom:0;left:@Ex; .POSabs();  .VA(middle); width:~`"calc(100% - 2* "+@{E}+"px)"`;
+            .C(white); &,label { .FZ(@D/2.5); .FF("Noto Sans"); }
+         }
+         
+         .icon { .vert(); }
+         .scro { .jaune(); right:0;left:auto; }
+         .menu { .bleu(); top:0; }
+         .info { .rouge(); }
+         
+      
+         .coin { .T1(@T3); .B1(#212121); .Wx(2*@E);.Hx(2*@E);.POSabs(); left:~`-@{E}+"px"`;top:~`-@{E}+"px"`; .BGcol(white);  box-shadow:-1px -1px 5px 2px rgba(0,0,0,0.35);  }
+         .info + .coin { bottom:~`-@{E}+"px"`;top:auto;box-shadow:-1px 1px 5px 2px rgba(0,0,0,0.35);  }
+         .menu + .coin { right:~`-@{E}+"px"`;left:auto;box-shadow:1px -1px 5px 2px rgba(0,0,0,0.35);  }
+         .scro + .coin { bottom:~`-@{E}+"px"`;top:auto;right:~`-@{E}+"px"`;left:auto;box-shadow:1px 1px 5px 2px rgba(0,0,0,0.35);  }
+      
+         &:hover {
+            .coin { .B1(#212121); .Wx(3*@E);.Hx(3*@E);.POSabs(); left:~`-2*@{E}+"px"`;top:~`-2*@{E}+"px"`; .BGcol(white);  box-shadow:-1px -1px 5px 2px rgba(0,0,0,0.35);  }
+            .info + .coin { bottom:~`-2*@{E}+"px"`;top:auto;box-shadow:-1px 1px 5px 2px rgba(0,0,0,0.35);  }
+            .menu + .coin { right:~`-2*@{E}+"px"`;left:auto;box-shadow:1px -1px 5px 2px rgba(0,0,0,0.35);  }
+            .scro + .coin { bottom:~`-2*@{E}+"px"`;top:auto;right:~`-2*@{E}+"px"`;left:auto;box-shadow:1px 1px 5px 2px rgba(0,0,0,0.35);  }
+         }
+         
+         .content { .POSabs(); top:~`@{E}+"px"`; left:~`@{E}+"px"`; width:~`"calc(100% - 2* "+@{E}+"px)"`; height:~`"calc(100% - 2* "+@{E}+"px)"`; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            p { .M0();.Px(10,10); }
+         }
+      }
    }
    
 }
