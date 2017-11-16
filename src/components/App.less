@@ -58,7 +58,7 @@ body { .M0();
       #icon,#scro { .Wx(@D); height:~`"calc(100% - 2 * "+@{D}+"px)"`; .POSabs();  .DB(); left:0; top:@Dx; .TA5();  .Px(@D/10,@D/10); }
       
       
-      #icon {
+      #icon { // ------------------------------------------------------------------------------------------------------------------------------ icons
          background: @jaune2; /* For browsers that do not support gradients */
          background: -webkit-linear-gradient(left top, @jaune1, @jaune3); /* For Safari 5.1 to 6.0 */
          background: -o-linear-gradient(bottom right,  @jaune1, @jaune3); /* For Opera 11.1 to 12.0 */
@@ -109,7 +109,7 @@ body { .M0();
          .C(white); &,label { .FZ(@D/2.5); .FF("Noto Sans"); }
       }
       
-      #info { .TA1();
+      #info { .TA1(); // ------------------------------------------------------------------------------------------------------------------------------ info
          background: @bleu2; /* For browsers that do not support gradients */
          background: -webkit-linear-gradient(left top, @bleu1, @bleu3); /* For Safari 5.1 to 6.0 */
          background: -o-linear-gradient(bottom right,  @bleu1, @bleu3); /* For Opera 11.1 to 12.0 */
@@ -122,7 +122,7 @@ body { .M0();
          
       }
       
-      #menu { top:0;
+      #menu { top:0; // ------------------------------------------------------------------------------------------------------------------------------ menu
          background: @rouge2; /* For browsers that do not support gradients */
          background: -webkit-linear-gradient(left top, @rouge1, @rouge3); /* For Safari 5.1 to 6.0 */
          background: -o-linear-gradient(bottom right,  @rouge1, @rouge3); /* For Opera 11.1 to 12.0 */
@@ -131,10 +131,14 @@ body { .M0();
          .B1(@rouge0);.BR1(@rouge4);.BB1(@rouge4);
          text-shadow:1px 1px 1px @rouge5 ;    
          .PLx(0);
-         & > ul { &,* { .VAtop(); }
-            & > li:hover ul { .DB(); } //.O(1);pointer-events:auto;}  
+         & > ul { &,* { .VAtop(); cursor:default;}
+            & > li:hover { 
+               ul { .DB(); }
+               & > span { 
+                  .BGcol(white); .C(@rouge2); 
+               }
+            } //.O(1);pointer-events:auto;}  
             & > li > span { .PWx(10); .FF("Noto Sans"); .DI();
-               // &:hover { .BGcol(@rouge0); .C(@rouge2); }
               
             }   
             &,ul { list-style-type:none; .P0(); .M0(); }
@@ -143,12 +147,14 @@ body { .M0();
             }
             & > li > ul { .T1(@T3);.BGcol(@rouge2); box-shadow:2px 2px 3px @rouge5; .MLx(-1);.MTx(0);.B1(@rouge3); .D0(); //.O(0);pointer-events:none;
                .Wx(100);
-               & > li { .PWx(10);.FF("Noto Sans"); }
+               & > li { .PWx(10);.FF("Noto Sans"); 
+                  &:hover { .BGcol(white); .C(@rouge2);  }
+               }
             }
          }
       }
       
-      #scro { right:0;left:auto;
+      #scro { right:0;left:auto; // ------------------------------------------------------------------------------------------------------------------- scroll
          background: @vert2; /* For browsers that do not support gradients */
          background: -webkit-linear-gradient(left top, @vert1, @vert3); /* For Safari 5.1 to 6.0 */
          background: -o-linear-gradient(bottom right,  @vert1, @vert3); /* For Opera 11.1 to 12.0 */

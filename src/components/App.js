@@ -75,6 +75,8 @@ class TodoListApp extends Component
             //<Draggable cancel="button" {...dragHandlers}>
       return (
          <div className="TodoListApp">   
+            <div className="window">
+            </div>
             <div id="main"></div>
             <div id="icon" className="E">
                <button title="load" onClick={ function() { $("label[for=theFile]").click(); } }>{ 'lo\nad' }</button>
