@@ -77,13 +77,13 @@ class TodoListApp extends Component
          <div className="TodoListApp">   
             <div id="main">
                <div id="fond"/>
-               <Draggable handle=".coin" grid={[10, 10]} bounds="parent" {...dragHandlers}>
+               <Draggable handle=".menu" grid={[10, 10]} bounds="parent" {...dragHandlers}>
                   <div className="window alert">
                      <div className="icon"/>
                      <div className="coin"/>
                      <div className="info"/>
                      <div className="coin"/>
-                     <div className="menu"/>
+                     <div className="menu">Info</div>
                      <div className="coin"/>
                      <div className="scro"/>
                      <div className="coin"/>
